@@ -1,0 +1,513 @@
+/* Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-main: #1C2526;
+  --bg-card: #2F3A3B;
+  --text-primary: #FFFFFF;
+  --text-secondary: #b0bec5; /* Lighter gray for secondary text */
+  --button-bg: #4A5657;
+  --button-hover-bg: #5A6768;
+  --border-color: #4A5657;
+  --input-bg: #3e4a4b;
+  --error-color: #f44336; /* Red for errors */
+  --success-color: #4caf50; /* Green for success */
+  --status-todo: #ffc107; /* Amber */
+  --status-inprogress: #2196f3; /* Blue */
+  --status-done: #4caf50; /* Green */
+
+  --padding-base: 1.5rem;
+  --border-radius-base: 10px;
+  --box-shadow-base: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  --font-size-heading: 1.75rem;
+  --font-size-regular: 1rem;
+  --font-size-small: 0.875rem;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh; /* Ensure body takes full height */
+  display: flex; /* Helps with centering in some layouts */
+  flex-direction: column;
+}
+
+#root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Make root container take available space */
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--text-secondary);
+}
+
+/* General Layout Classes */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto; /* Add some top/bottom margin */
+  padding: var(--padding-base);
+  flex-grow: 1; /* Allow container to grow */
+}
+
+.card {
+  background-color: var(--bg-card);
+  padding: var(--padding-base);
+  border-radius: var(--border-radius-base);
+  box-shadow: var(--box-shadow-base);
+  margin-bottom: var(--padding-base);
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: var(--font-size-small);
+  color: var(--text-secondary);
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: calc(var(--border-radius-base) / 2);
+  color: var(--text-primary);
+  font-size: var(--font-size-regular);
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--text-primary);
+}
+
+/* Buttons */
+.button {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--button-bg);
+  color: var(--text-primary);
+  border: none;
+  border-radius: calc(var(--border-radius-base) / 2);
+  cursor: pointer;
+  font-size: var(--font-size-regular);
+  text-align: center;
+  transition: background-color 0.2s ease;
+  margin-right: 0.5rem; /* Add some spacing between buttons */
+}
+.button:last-child {
+    margin-right: 0;
+}
+
+
+.button:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.button-primary {
+    background-color: #587477; /* A slightly different shade for primary actions */
+}
+.button-primary:hover {
+    background-color: #6a888b;
+}
+
+.button-danger {
+    background-color: #a14d4d;
+}
+.button-danger:hover {
+    background-color: #c25d5d;
+}
+
+.button-small {
+    padding: 0.4rem 0.8rem;
+    font-size: var(--font-size-small);
+}
+
+/* Utility Classes */
+.text-center {
+  text-align: center;
+}
+
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.my-1 { margin-top: 1rem; margin-bottom: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+.my-2 { margin-top: 2rem; margin-bottom: 2rem; }
+
+.error-message {
+    color: var(--error-color);
+    font-size: var(--font-size-small);
+    margin-top: 0.5rem;
+}
+
+.loading-spinner {
+    border: 4px solid var(--bg-card);
+    border-top: 4px solid var(--button-bg);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto; /* Center spinner */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 1rem;
+  }
+
+  :root {
+    --font-size-heading: 1.5rem;
+    --font-size-regular: 0.95rem;
+  }
+
+  .button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    margin-right: 0;
+  }
+  .button-group {
+      display: flex;
+      flex-direction: column;
+  }
+   .button-group .button {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+    }
+     .button-group .button:last-child {
+        margin-bottom: 0;
+    }
+
+}
+
+/* Specific Page/Component Styles (Add as needed) */
+
+/* Header */
+.app-header {
+  background-color: var(--bg-card);
+  padding: 1rem var(--padding-base);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--box-shadow-base);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.logo-icon {
+    margin-right: 0.5rem;
+     /* You can use an SVG or FontAwesome icon here */
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--text-primary); /* Placeholder icon */
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 13h-2v-2h2v2zm0-4h-2V9h2v2zm-2-5V3.5L18.5 9H13z"/></svg>');
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-1 13h-2v-2h2v2zm0-4h-2V9h2v2zm-2-5V3.5L18.5 9H13z"/></svg>');
+
+}
+
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+}
+
+.nav-links a, .nav-links button {
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--font-size-regular);
+  padding: 0;
+}
+
+.nav-links a:hover, .nav-links button:hover {
+  color: var(--text-secondary);
+}
+
+
+/* Auth Forms (Login/Register) */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1; /* Take remaining vertical space */
+  padding: var(--padding-base);
+}
+
+.auth-card {
+  background-color: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--border-radius-base);
+  box-shadow: var(--box-shadow-base);
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-card h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: var(--font-size-heading);
+}
+
+.auth-card p {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+.auth-card .button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: var(--font-size-small);
+}
+.auth-link a {
+    color: var(--button-bg);
+    font-weight: bold;
+}
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+
+/* Task List */
+.task-filters {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 1rem; /* Spacing between items */
+    margin-bottom: var(--padding-base);
+    padding: 1rem;
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius-base);
+}
+
+.task-filters input,
+.task-filters select {
+    padding: 0.6rem 1rem;
+    background-color: var(--input-bg);
+    border: 1px solid var(--border-color);
+    border-radius: calc(var(--border-radius-base) / 2);
+    color: var(--text-primary);
+    font-size: var(--font-size-small);
+    flex-grow: 1; /* Allow inputs/selects to grow */
+    min-width: 150px; /* Minimum width */
+}
+
+.task-filters input::placeholder {
+    color: var(--text-secondary);
+}
+
+.task-list {
+    /* Styles for the container of task items */
+}
+
+.task-item {
+    background-color: var(--bg-card);
+    padding: var(--padding-base);
+    border-radius: var(--border-radius-base);
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Align items top */
+    flex-wrap: wrap; /* Allow wrapping inside item */
+    gap: 1rem; /* Space between elements inside */
+}
+
+.task-item-content {
+    flex-grow: 1; /* Allow content to take available space */
+    min-width: 200px; /* Ensure content doesn't get too squeezed */
+}
+
+.task-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-item p {
+    font-size: var(--font-size-small);
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+.task-item .description {
+     color: var(--text-primary); /* Make description more prominent */
+     margin-bottom: 0.8rem;
+}
+
+
+.task-item-details {
+    display: flex;
+    gap: 1.5rem; /* Space between details */
+    font-size: var(--font-size-small);
+    margin-bottom: 1rem;
+}
+
+.task-item-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.task-status {
+    padding: 0.2rem 0.6rem;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    color: var(--bg-main); /* Dark text on light status badges */
+}
+
+.status-ToDo { background-color: var(--status-todo); }
+.status-InProgress { background-color: var(--status-inprogress); }
+.status-Done { background-color: var(--status-done); }
+
+.task-item-actions {
+    display: flex;
+    gap: 0.5rem; /* Space between action buttons */
+    align-self: center; /* Align buttons vertically center if they wrap */
+}
+
+/* Dashboard */
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--padding-base);
+}
+
+.summary-card {
+    background-color: var(--bg-card);
+    padding: var(--padding-base);
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-base);
+    text-align: center;
+}
+
+.summary-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.summary-card p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* Profile Page */
+.profile-info {
+    margin-bottom: 2rem;
+}
+
+.profile-info p {
+    margin-bottom: 0.5rem;
+}
+.profile-info strong {
+    color: var(--text-secondary);
+    margin-right: 0.5rem;
+}
+
+/* 404 Page */
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1;
+    padding: var(--padding-base);
+    /* Optional: Add background image/pattern */
+    /* background: url('/path/to/404-background.svg') no-repeat center center; */
+    /* background-size: cover; */
+}
+
+.not-found-container h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.not-found-container p {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* Modal Styles (Example) */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: var(--bg-card);
+    padding: 2rem;
+    border-radius: var(--border-radius-base);
+    box-shadow: var(--box-shadow-base);
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.modal-content h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
