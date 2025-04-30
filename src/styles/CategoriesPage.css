@@ -1,0 +1,74 @@
+/* src/styles/CategoriesPage.css (Contoh Styling) */
+
+.add-category-form {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem; /* Jarak bawah dari daftar */
+}
+
+.add-category-form input {
+  flex-grow: 1; /* Buat input mengambil sisa ruang */
+}
+
+.list-container {
+  margin-top: 1rem;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  padding: 0.8rem 1rem;
+  background-color: var(--input-bg); /* Atau var(--bg-card) */
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+}
+
+.category-item span {
+  flex-grow: 1; /* Nama kategori ambil ruang */
+  margin-right: 1rem; /* Jarak ke tombol */
+  word-break: break-word; /* Wrap teks panjang */
+}
+
+.category-item .button-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0; /* Jangan biarkan tombol menyusut */
+}
+
+.category-item.editing {
+  background-color: #4e5d5e; /* Warna sedikit beda saat edit */
+  gap: 0.8rem;
+  padding: 0.6rem 1rem;
+}
+.category-item.editing input {
+  flex-grow: 1;
+}
+.category-item.editing .button-group {
+  flex-shrink: 0;
+}
+
+/* Responsive kecil (opsional) */
+@media (max-width: 500px) {
+  .list-item {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+  .category-item span {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  .category-item .button-group {
+    justify-content: center;
+  }
+  .category-item.editing {
+    gap: 0.8rem;
+  }
+  .category-item.editing input {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+}

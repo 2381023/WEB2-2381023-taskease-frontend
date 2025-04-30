@@ -1,0 +1,22 @@
+/* src/styles/Header.css */
+.logout-button {
+  background: none;
+  border: none;
+  color: var(--text-primary); /* Sesuaikan dengan warna teks link */
+  cursor: pointer;
+  padding: 0;
+  font-size: inherit; /* Samakan font size dengan link lain */
+  font-family: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.logout-button:hover {
+  color: var(--text-secondary); /* Warna hover seperti link */
+  text-decoration: underline; /* Opsional */
+}
+
+/* Anda bisa menambahkan style untuk NavLink aktif di sini jika pakai className */
+/* .nav-link-active {
+    font-weight: bold;
+} */

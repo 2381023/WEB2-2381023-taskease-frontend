@@ -1,0 +1,48 @@
+/* src/styles/TaskItem.css */
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items ke atas */
+  gap: 1rem; /* Jarak antara content dan actions */
+  flex-wrap: wrap; /* Biarkan actions wrap ke bawah di layar kecil */
+  /* Menggunakan style card dari index.css jika class 'card' ditambahkan */
+}
+
+.task-item-content {
+  flex-grow: 1; /* Biarkan content mengambil ruang */
+  min-width: 250px; /* Lebar minimum untuk content */
+}
+
+.task-item-details {
+  display: flex;
+  flex-wrap: wrap; /* Biarkan detail wrap */
+  gap: 0.5rem 1.5rem; /* Jarak vertikal dan horizontal antar detail */
+  font-size: var(--font-size-small);
+  margin-top: 0.8rem;
+  color: var(--text-secondary);
+}
+.task-item-details strong {
+  color: var(--text-secondary); /* Atau sedikit lebih terang */
+}
+.task-item-details .category-badge strong {
+  margin-right: 0.3em;
+}
+
+.task-item-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0; /* Jangan biarkan tombol menyusut */
+  align-self: center; /* Pusatkan tombol secara vertikal jika wrap */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .task-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .task-item-actions {
+    margin-top: 1rem;
+    justify-content: flex-end; /* Atau center */
+  }
+}
